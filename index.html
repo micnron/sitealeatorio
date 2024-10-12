@@ -3,139 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki de Ryota (Vapor)</title>
+    <title>Wiki de Ryota</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
+            margin: 20px;
+            line-height: 1.6;
             background-color: #f4f4f4;
         }
-        h1, h2 {
+        h1 {
             color: #333;
         }
-        .section {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            margin-bottom: 20px;
+        h2 {
+            color: #555;
         }
-        .section-title {
-            font-size: 1.5em;
-            margin-bottom: 10px;
+        h3 {
+            color: #666;
         }
-        .ability {
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
             padding: 10px;
-            background-color: #fafafa;
+            text-align: left;
         }
-        .ability-title {
-            font-weight: bold;
-            font-size: 1.2em;
+        th {
+            background-color: #e2e2e2;
         }
-        .subsection {
-            margin-left: 20px;
+        .skill {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Ryota (Vapor)</h1>
+<h1>Ryota (Vapor)</h1>
 
-    <div class="section">
-        <div class="section-title">História de Origem</div>
-        <p>Ryota cresceu como órfão em um mundo devastado pela guerra omnica. Para sobreviver, tornou-se mercenário, destacando-se no uso de tecnologias de vapor e armas de energia. Ele se juntou à Talon, atraído pela promessa de poder e oportunidades, mas não se importa com ideais; sua lealdade é estritamente voltada à sobrevivência.</p>
-    </div>
+<h2>Habilidades</h2>
 
-    <div class="section">
-        <div class="section-title">Dinâmica com Mauga e Baptiste</div>
-        <p>Ryota mantém uma amizade forte com Mauga, um brutamontes de grande coração, enquanto tem uma relação complexa com Baptiste, um médico combatente que abandonou a Talon. A partida de Baptiste deixou Ryota e Mauga em um estado emocional delicado. Mauga está em negação, esperando que Baptiste retorne, enquanto Ryota percebe que o ex-amigo fez uma escolha que indicava que o mundo fora da Talon era mais atraente.</p>
-    </div>
+<div class="skill">
+    <h3>1. Armadilha</h3>
+    <p><strong>Descrição:</strong> Uma armadilha no chão que, ao ser ativada por um inimigo, libera uma nuvem, revelando a localização do inimigo e imobilizando-o, assim como os inimigos próximos, por alguns segundos. Dentro da nuvem, inimigos têm seu dano reduzido, enquanto aliados próximos recebem um aumento de dano.</p>
+    <p><strong>Efeito Secundário:</strong></p>
+    <ul>
+        <li>Inimigos imobilizados: Redução de Dano: 30%</li>
+        <li>Aliados próximos: Aumento de Dano: 20%</li>
+    </ul>
+    <p><strong>Duração da Imobilização:</strong> 3 segundos</p>
+    <p><strong>Área de Efeito:</strong> 5m²</p>
+    <p><strong>Custo de Energia:</strong> 20 pontos</p>
+    <p><strong>Tempo de Recarga:</strong> 16 segundos</p>
+</div>
 
-    <div class="section">
-        <div class="section-title">Motivações</div>
-        <p>Embora Ryota tenha um lado pragmático e calculista, ele não é desprovido de emoções e se preocupa com Mauga e Baptiste. A lealdade a Mauga é inabalável, e ele sente falta de Baptiste, reconhecendo que a Talon é errada, mas acredita que sair seria imprudente.</p>
-    </div>
+<div class="skill">
+    <h3>2. Escudo de Energia</h3>
+    <p><strong>Descrição:</strong> Ryota gera um escudo de energia que protege um aliado por um curto período, absorvendo dano e reduzindo o dano causado pelo aliado durante esse tempo.</p>
+    <p><strong>Absorção de Dano:</strong> 250 pontos</p>
+    <p><strong>Duração:</strong> 3 segundos</p>
+    <p><strong>Redução de Dano do Aliado:</strong> 50%</p>
+    <p><strong>Custo de Energia:</strong> 5 pontos</p>
+    <p><strong>Tempo de Recarga:</strong> 5 segundos</p>
+    <p>Pode gerar até 2 escudos simultaneamente.</p>
+</div>
 
-    <div class="section">
-        <div class="section-title">Texto Sobre a Partida de Baptiste</div>
-        <p><strong>Tema Principal:</strong> O silêncio e a dor da ausência de Baptiste entre Ryota e Mauga. Eles lidam com a perda do amigo que representava o coração do grupo e a esperança de um futuro melhor. A narrativa destaca a luta emocional de Ryota, que, apesar de sua fachada pragmática, sente a falta de Baptiste e percebe que a dinâmica entre eles mudou sem o idealista.</p>
-        <p><strong>Trecho do Texto:</strong> Ryota tenta manter a calma enquanto Mauga se debate entre a raiva e a tristeza. A cama em que os três costumavam dormir se torna um lembrete doloroso de tempos que não voltarão, simbolizando a perda e a mudança irreversível na dinâmica do trio.</p>
-    </div>
+<div class="skill">
+    <h3>3. Empurrão de Vapor</h3>
+    <p><strong>Descrição:</strong> Ryota libera uma onda de vapor que empurra todos os inimigos em um raio de 3 metros de onde estava.</p>
+    <p><strong>Dano:</strong> 25</p>
+    <p><strong>Custo de Energia:</strong> 20 pontos</p>
+    <p><strong>Tempo de Recarga:</strong> 8 segundos</p>
+</div>
 
-    <div class="section">
-        <div class="section-title">Resumo Final</div>
-        <p>Ryota é um ex-mercenário pragmático, focado na sobrevivência, mas com um coração que ainda se importa com aqueles ao seu redor. Sua relação com Mauga é forte, enquanto sua conexão com Baptiste traz sentimentos de perda e reflexão sobre as escolhas de vida e lealdade.</p>
-    </div>
+<div class="skill">
+    <h3>Ultimate: Fortaleza de Vapor</h3>
+    <p><strong>Descrição:</strong> Cria uma cúpula de vapor que bloqueia a visão dos inimigos, permitindo que Ryota e seus aliados vejam normalmente. A cúpula oferece proteção, reduzindo o dano recebido em 40%.</p>
+    <p><strong>Custo Inicial:</strong> 50 pontos de energia para ativar</p>
+    <p><strong>Gasto de Energia Ao Longo do Tempo:</strong> Consome 5 pontos de energia por segundo enquanto ativa</p>
+    <p><strong>Duração Máxima:</strong> 10 segundos</p>
+</div>
 
-    <div class="section">
-        <div class="section-title">Habilidades</div>
-        <div class="ability">
-            <div class="ability-title">1. Armadilha</div>
-            <p>Descrição: Uma armadilha no chão que, ao ser ativada por um inimigo, libera uma nuvem, revelando a localização do inimigo e imobilizando-o, assim como os inimigos próximos, por alguns segundos. Dentro da nuvem, inimigos têm seu dano reduzido, enquanto aliados próximos recebem um aumento de dano.</p>
-            <div class="subsection"><strong>Efeito Secundário:</strong></div>
-            <ul class="subsection">
-                <li>Inimigos imobilizados: Redução de Dano: 30%</li>
-                <li>Aliados próximos: Aumento de Dano: 20%</li>
-            </ul>
-            <div class="subsection"><strong>Duração da Imobilização:</strong> 3 segundos</div>
-            <div class="subsection"><strong>Área de Efeito:</strong> 5m²</div>
-            <div class="subsection"><strong>Custo de Energia:</strong> 20 pontos</div>
-            <div class="subsection"><strong>Tempo de Recarga:</strong> 16 segundos</div>
-        </div>
+<h2>Ganho e Consumo de Energia</h2>
+<p><strong>Energia Total:</strong> 100 pontos</p>
+<p><strong>Ganho Passivo:</strong> +5 pontos a cada 5 segundos</p>
+<p><strong>Ganho por Ações:</strong></p>
+<ul>
+    <li>Dano: +10 por inimigo eliminado</li>
+    <li>Apoio: +3 por aliado protegido; +10 por aliado salvo</li>
+</ul>
 
-        <div class="ability">
-            <div class="ability-title">2. Escudo de energia</div>
-            <p>Descrição: Ryota gera um escudo de energia que protege um aliado por um curto período, absorvendo dano e reduzindo o dano causado pelo aliado durante esse tempo.</p>
-            <div class="subsection"><strong>Absorção de Dano:</strong> 250 pontos</div>
-            <div class="subsection"><strong>Duração:</strong> 3 segundos</div>
-            <div class="subsection"><strong>Redução de Dano do Aliado:</strong> 50%</div>
-            <div class="subsection"><strong>Custo de Energia:</strong> 5 pontos</div>
-            <div class="subsection"><strong>Tempo de Recarga:</strong> 5 segundos</div>
-            <div class="subsection"><strong>Pode gerar até:</strong> 2 escudos simultaneamente.</div>
-        </div>
+<h2>Custos das Habilidades</h2>
+<table>
+    <tr>
+        <th>Habilidade</th>
+        <th>Custo de Energia</th>
+    </tr>
+    <tr>
+        <td>Armadilha de Vapor</td>
+        <td>20 pontos</td>
+    </tr>
+    <tr>
+        <td>Escudo de Energia</td>
+        <td>5 pontos</td>
+    </tr>
+    <tr>
+        <td>Empurrão de Vapor</td>
+        <td>20 pontos</td>
+    </tr>
+    <tr>
+        <td>Ultimate</td>
+        <td>50 pontos + 5 por segundo</td>
+    </tr>
+</table>
 
-        <div class="ability">
-            <div class="ability-title">3. Empurrão de Vapor</div>
-            <p>Descrição: Ryota libera uma onda de vapor que empurra todos os inimigos em um raio de 3 metros de onde estava.</p>
-            <div class="subsection"><strong>Dano:</strong> 25</div>
-            <div class="subsection"><strong>Custo de Energia:</strong> 20 pontos</div>
-            <div class="subsection"><strong>Tempo de Recarga:</strong> 8 segundos</div>
-        </div>
+<h2>Arma: Arma de Fogo em Rajada</h2>
+<p><strong>Descrição Geral:</strong> Uma arma de fogo em rajada que utiliza projéteis de energia concentrada para causar dano. Ideal para controlar o campo de batalha.</p>
+<h3>Estatísticas da Arma:</h3>
+<table>
+    <tr>
+        <th>Tipo de Disparo</th>
+        <td>Rajada (12 balas por disparo)</td>
+    </tr>
+    <tr>
+        <th>Dano por Rajada</th>
+        <td>126 (se todas as balas acertarem)</td>
+    </tr>
+    <tr>
+        <th>Dano por projétil</th>
+        <td>10,50</td>
+    </tr>
+    <tr>
+        <th>Faixa de Queda</th>
+        <td>Sem faixa de queda</td>
+    </tr>
+    <tr>
+        <th>Tiro na Cabeça</th>
+        <td>Não aplicável</td>
+    </tr>
+    <tr>
+        <th>Munição por Disparo</th>
+        <td>12 projéteis</td>
+    </tr>
+    <tr>
+        <th>Munição Total</th>
+        <td>200</td>
+    </tr>
+    <tr>
+        <th>Tempo de Recarga</th>
+        <td>1,8 segundos</td>
+    </tr>
+</table>
 
-        <div class="ability">
-            <div class="ability-title">Ultimate: Fortaleza de Vapor</div>
-            <p>Descrição: Cria uma cúpula de vapor que bloqueia a visão dos inimigos, permitindo que Ryota e seus aliados vejam normalmente. A cúpula oferece proteção, reduzindo o dano recebido em 40%.</p>
-            <div class="subsection"><strong>Custo Inicial:</strong> 50 pontos de energia para ativar</div>
-            <div class="subsection"><strong>Gasto de Energia Ao Longo do Tempo:</strong> Consome 5 pontos de energia por segundo enquanto ativa</div>
-            <div class="subsection"><strong>Duração Máxima:</strong> 10 segundos</div>
-        </div>
-    </div>
+<h2>História de Origem</h2>
+<p>Ryota cresceu como órfão em um mundo devastado pela guerra omnica. Para sobreviver, tornou-se mercenário, destacando-se no uso de tecnologias de vapor e armas de energia.</p>
+<p>Ele se juntou à Talon, atraído pela promessa de poder e oportunidades, mas não se importa com ideais; sua lealdade é estritamente voltada à sobrevivência.</p>
 
-    <div class="section">
-        <div class="section-title">Ganho e Consumo de Energia</div>
-        <div class="subsection"><strong>Energia Total:</strong> 100 pontos</div>
-        <div class="subsection"><strong>Ganho Passivo:</strong> +5 pontos a cada 5 segundos</div>
-        <div class="subsection"><strong>Ganho por Ações:</strong></div>
-        <ul>
-            <li>Dano: +10 por inimigo eliminado</li>
-            <li>Apoio: +3 por aliado protegido; +10 por aliado salvo</li>
-        </ul>
-    </div>
+<h2>Dinâmica com Mauga e Baptiste</h2>
+<p>Ryota mantém uma amizade forte com Mauga, um brutamontes de grande coração, enquanto tem uma relação complexa com Baptiste, um médico combatente que abandonou a Talon.</p>
+<p>A partida de Baptiste deixou Ryota e Mauga em um estado emocional delicado. Mauga está em negação, esperando que Baptiste retorne, enquanto Ryota percebe que o ex-amigo fez uma escolha que indicava que o mundo fora da Talon era mais atraente.</p>
 
-    <div class="section">
-        <div class="section-title">Custos das Habilidades</div>
-        <ul>
-            <li>Armadilha de Vapor: 20 pontos</li>
-            <li>Escudo de energia: 5 pontos</li>
-            <li>Empurrão: 20 pontos</li>
-            <li>Ultimate: 50 pontos + 5 por segundo</li>
-        </ul>
-    </div>
+<h2>Motivações</h2>
+<p>Embora Ryota tenha um lado pragmático e calculista, ele não é desprovido de emoções e se preocupa com Mauga e Baptiste. A lealdade a Mauga é inabalável, e ele sente falta de Baptiste, reconhecendo que a Talon é errada, mas acredita que sair seria imprudente.</p>
 
-    <div class="section">
-        <div class="section-title">Arma</div>
-        <p>Descrição Geral: Uma arma de fogo em rajada que utiliza projéteis de energia concentrada para causar dano.
+<h2>Texto Sobre a Partida de Baptiste</h2>
+<h3>Tema Principal:</h3>
+<p>O silêncio e a dor da ausência de Baptiste entre Ryota e Mauga. Eles lidam com a perda do amigo que representava o coração do grupo e a esperança de um futuro melhor.</p>
+<p>A narrativa destaca a luta emocional de Ryota, que, apesar de sua fachada pragmática, sente a falta de Baptiste e percebe que a dinâmica entre eles mudou sem o idealista.</p>
+
+<h3>Trecho do Texto:</h3>
+<p>Ryota tenta manter a calma enquanto Mauga se debate entre a raiva e a tristeza. A cama em que os três costumavam dormir se torna um lembrete doloroso de tempos que não
