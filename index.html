@@ -1,173 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki de Ryota</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            color: #333;
-        }
-        h2 {
-            color: #555;
-        }
-        h3 {
-            color: #666;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        table, th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #e2e2e2;
-        }
-        .skill {
-            margin-bottom: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryota — Overwatch</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: white;
+    }
+    header {
+      background: linear-gradient(to right, #1e293b, #334155);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0;
+      font-size: 1rem;
+      color: #cbd5e1;
+    }
+    .section-title {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.8rem;
+      color: white;
+    }
+    .skills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.5rem;
+    }
+    .skill-icon {
+      background-color: #334155;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #94a3b8;
+    }
+    .skill-icon img {
+      width: 32px;
+      height: 32px;
+    }
+    .history {
+      background: #1e293b;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+      color: #e2e8f0;
+      max-width: 800px;
+      margin: auto;
+      border-top: 1px solid #475569;
+    }
+    @media (max-width: 600px) {
+      .skills {
+        gap: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>RYOTA</h1>
+    <div class="info">
+      <span>Tanque</span>
+      <span>Japão</span>
+      <span>Idade: 36</span>
+    </div>
+  </header>
 
-<h1>Ryota (Vapor)</h1>
+  <section>
+    <h2 class="section-title">HABILIDADES</h2>
+    <div class="skills">
+      <div class="skill-icon"><img src="placeholder.png" alt="Passiva"></div>
+      <div class="skill-icon"><img src="placeholder.png" alt="Primária"></div>
+      <div class="skill-icon"><img src="placeholder.png" alt="Barreira"></div>
+      <div class="skill-icon"><img src="placeholder.png" alt="Reforço"></div>
+      <div class="skill-icon"><img src="placeholder.png" alt="Prismas"></div>
+      <div class="skill-icon"><img src="placeholder.png" alt="Ultimate"></div>
+    </div>
+  </section>
 
-<h2>Habilidades</h2>
+  <section class="history">
+    <h2>HISTÓRIA</h2>
+    <p>Ryota cresceu em um mundo devastado pela guerra ômnica. Sem família, sem paz e sem saída, encontrou na Talon não uma causa, mas um propósito. Silencioso, letal e pragmático, Ryota se tornou um mercenário que luta não por ideologia, mas por sobrevivência — e por aqueles que, como ele, foram deixados para trás.</p>
+    <p>Dotado de uma tecnologia de luz sólida de uso militar, Ryota opera com precisão cirúrgica. A ausência de Baptiste deixou uma marca que nem ele nem Mauga admitem em voz alta. Ainda assim, Ryota continua — entre a lealdade, a culpa e a inevitabilidade de mais uma guerra.</p>
+  </section>
+</body>
+</html>
 
-<div class="skill">
-    <h3>1. Armadilha</h3>
-    <p><strong>Descrição:</strong> Uma armadilha no chão que, ao ser ativada por um inimigo, libera uma nuvem, revelando a localização do inimigo e imobilizando-o, assim como os inimigos próximos, por alguns segundos. Dentro da nuvem, inimigos têm seu dano reduzido, enquanto aliados próximos recebem um aumento de dano.</p>
-    <p><strong>Efeito Secundário:</strong></p>
-    <ul>
-        <li>Inimigos imobilizados: Redução de Dano: 30%</li>
-        <li>Aliados próximos: Aumento de Dano: 20%</li>
-    </ul>
-    <p><strong>Duração da Imobilização:</strong> 3 segundos</p>
-    <p><strong>Área de Efeito:</strong> 5m²</p>
-    <p><strong>Custo de Energia:</strong> 20 pontos</p>
-    <p><strong>Tempo de Recarga:</strong> 16 segundos</p>
-</div>
 
-<div class="skill">
-    <h3>2. Escudo de Energia</h3>
-    <p><strong>Descrição:</strong> Ryota gera um escudo de energia que protege um aliado por um curto período, absorvendo dano e reduzindo o dano causado pelo aliado durante esse tempo.</p>
-    <p><strong>Absorção de Dano:</strong> 250 pontos</p>
-    <p><strong>Duração:</strong> 3 segundos</p>
-    <p><strong>Redução de Dano do Aliado:</strong> 50%</p>
-    <p><strong>Custo de Energia:</strong> 5 pontos</p>
-    <p><strong>Tempo de Recarga:</strong> 5 segundos</p>
-    <p>Pode gerar até 2 escudos simultaneamente.</p>
-</div>
+Pronto! Agora a seção das habilidades está com os ícones redondos e responsivos, igual ao estilo da página do Hazard. Usei as cores escuras e frias que combinam com o visual do Ryota. Me avisa se quiser ajustar o tamanho dos ícones, trocar os placeholders por imagens reais ou mudar a ordem das habilidades!
 
-<div class="skill">
-    <h3>3. Empurrão de Vapor</h3>
-    <p><strong>Descrição:</strong> Ryota libera uma onda de vapor que empurra todos os inimigos em um raio de 3 metros de onde estava.</p>
-    <p><strong>Dano:</strong> 25</p>
-    <p><strong>Custo de Energia:</strong> 20 pontos</p>
-    <p><strong>Tempo de Recarga:</strong> 8 segundos</p>
-</div>
-
-<div class="skill">
-    <h3>Ultimate: Fortaleza de Vapor</h3>
-    <p><strong>Descrição:</strong> Cria uma cúpula de vapor que bloqueia a visão dos inimigos, permitindo que Ryota e seus aliados vejam normalmente. A cúpula oferece proteção, reduzindo o dano recebido em 40%.</p>
-    <p><strong>Custo Inicial:</strong> 50 pontos de energia para ativar</p>
-    <p><strong>Gasto de Energia Ao Longo do Tempo:</strong> Consome 5 pontos de energia por segundo enquanto ativa</p>
-    <p><strong>Duração Máxima:</strong> 10 segundos</p>
-</div>
-
-<h2>Ganho e Consumo de Energia</h2>
-<p><strong>Energia Total:</strong> 100 pontos</p>
-<p><strong>Ganho Passivo:</strong> +5 pontos a cada 5 segundos</p>
-<p><strong>Ganho por Ações:</strong></p>
-<ul>
-    <li>Dano: +10 por inimigo eliminado</li>
-    <li>Apoio: +3 por aliado protegido; +10 por aliado salvo</li>
-</ul>
-
-<h2>Custos das Habilidades</h2>
-<table>
-    <tr>
-        <th>Habilidade</th>
-        <th>Custo de Energia</th>
-    </tr>
-    <tr>
-        <td>Armadilha de Vapor</td>
-        <td>20 pontos</td>
-    </tr>
-    <tr>
-        <td>Escudo de Energia</td>
-        <td>5 pontos</td>
-    </tr>
-    <tr>
-        <td>Empurrão de Vapor</td>
-        <td>20 pontos</td>
-    </tr>
-    <tr>
-        <td>Ultimate</td>
-        <td>50 pontos + 5 por segundo</td>
-    </tr>
-</table>
-
-<h2>Arma: Arma de Fogo em Rajada</h2>
-<p><strong>Descrição Geral:</strong> Uma arma de fogo em rajada que utiliza projéteis de energia concentrada para causar dano. Ideal para controlar o campo de batalha.</p>
-<h3>Estatísticas da Arma:</h3>
-<table>
-    <tr>
-        <th>Tipo de Disparo</th>
-        <td>Rajada (12 balas por disparo)</td>
-    </tr>
-    <tr>
-        <th>Dano por Rajada</th>
-        <td>126 (se todas as balas acertarem)</td>
-    </tr>
-    <tr>
-        <th>Dano por projétil</th>
-        <td>10,50</td>
-    </tr>
-    <tr>
-        <th>Faixa de Queda</th>
-        <td>Sem faixa de queda</td>
-    </tr>
-    <tr>
-        <th>Tiro na Cabeça</th>
-        <td>Não aplicável</td>
-    </tr>
-    <tr>
-        <th>Munição por Disparo</th>
-        <td>12 projéteis</td>
-    </tr>
-    <tr>
-        <th>Munição Total</th>
-        <td>200</td>
-    </tr>
-    <tr>
-        <th>Tempo de Recarga</th>
-        <td>1,8 segundos</td>
-    </tr>
-</table>
-
-<h2>História de Origem</h2>
-<p>Ryota cresceu como órfão em um mundo devastado pela guerra omnica. Para sobreviver, tornou-se mercenário, destacando-se no uso de tecnologias de vapor e armas de energia.</p>
-<p>Ele se juntou à Talon, atraído pela promessa de poder e oportunidades, mas não se importa com ideais; sua lealdade é estritamente voltada à sobrevivência.</p>
-
-<h2>Dinâmica com Mauga e Baptiste</h2>
-<p>Ryota mantém uma amizade forte com Mauga, um brutamontes de grande coração, enquanto tem uma relação complexa com Baptiste, um médico combatente que abandonou a Talon.</p>
-<p>A partida de Baptiste deixou Ryota e Mauga em um estado emocional delicado. Mauga está em negação, esperando que Baptiste retorne, enquanto Ryota percebe que o ex-amigo fez uma escolha que indicava que o mundo fora da Talon era mais atraente.</p>
-
-<h2>Motivações</h2>
-<p>Embora Ryota tenha um lado pragmático e calculista, ele não é desprovido de emoções e se preocupa com Mauga e Baptiste. A lealdade a Mauga é inabalável, e ele sente falta de Baptiste, reconhecendo que a Talon é errada, mas acredita que sair seria imprudente.</p>
-
-<h2>Texto Sobre a Partida de Baptiste</h2>
-<h3>Tema Principal:</h3>
-<p>O silêncio e a dor da ausência de Baptiste entre Ryota e Mauga. Eles lidam com a perda do amigo que representava o coração do grupo e a esperança de um futuro melhor.</p>
-<p>A narrativa destaca a luta emocional de Ryota, que, apesar de sua fachada pragmática, sente a falta de Baptiste e percebe que a dinâmica entre eles mudou sem o idealista.</p>
