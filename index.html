@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -6,39 +5,22 @@
   <title>Ryota — Overwatch</title>
   <style>
     :root {
-      --bg-main: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
-      --card-bg: #121212;
-      --icon-bg: linear-gradient(to bottom, #2e2e2e, #4c4c4c);
-      --text-color: white;
-    }
-    body.light {
-      --bg-main: linear-gradient(to bottom, #f0f0f0, #ffffff);
-      --card-bg: #f9f9f9;
-      --icon-bg: linear-gradient(to bottom, #dcdcdc, #ffffff);
-      --text-color: #000;
+      --background-dark: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      --background-light: linear-gradient(to bottom, #0d47a1, #42a5f5);
+      --icon-dark: linear-gradient(to bottom, #2e2e2e, #4c4c4c);
+      --icon-light: linear-gradient(to bottom, #1e88e5, #90caf9);
+      --text-color-dark: white;
+      --text-color-light: #ffffff;
     }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: var(--bg-main);
-      color: var(--text-color);
-      transition: background 0.3s, color 0.3s;
+      background: var(--background-dark);
+      color: var(--text-color-dark);
+      transition: background 0.5s, color 0.5s;
     }
     .container {
       padding: 20px;
-    }
-    .menu {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-    .menu select, .menu button {
-      background: var(--card-bg);
-      color: var(--text-color);
-      border: 1px solid #555;
-      border-radius: 5px;
-      padding: 5px;
-      margin-left: 5px;
     }
     .title {
       text-align: center;
@@ -68,10 +50,11 @@
       gap: 15px;
     }
     .ability-icon {
-      width: 80px;
-      height: 80px;
+      flex: 1 1 100px;
+      max-width: 100px;
+      aspect-ratio: 1;
       border-radius: 50%;
-      background: var(--icon-bg);
+      background: var(--icon-dark);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -80,19 +63,47 @@
       font-weight: bold;
       padding: 10px;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      transition: background 0.5s;
     }
     .history {
-      background-color: var(--card-bg);
+      background-color: rgba(18, 18, 18, 0.9);
       padding: 20px;
       border-radius: 10px;
       max-width: 700px;
       margin: 20px auto;
       line-height: 1.6;
     }
+    .menu {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    .dropdown {
+      position: absolute;
+      top: 40px;
+      right: 20px;
+      background-color: #333;
+      border: 1px solid #555;
+      border-radius: 6px;
+      display: none;
+      flex-direction: column;
+      padding: 10px;
+    }
+    .dropdown button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      text-align: left;
+    }
+    .dropdown button:hover {
+      background-color: #444;
+    }
     @media (max-width: 600px) {
       .ability-icon {
-        width: 60px;
-        height: 60px;
         font-size: 10px;
         padding: 6px;
       }
@@ -100,12 +111,10 @@
   </style>
 </head>
 <body>
-  <div class="menu">
-    <select id="lang" onchange="changeLang(this.value)">
-      <option value="pt-br">PT</option>
-      <option value="en">EN</option>
-    </select>
-    <button onclick="toggleTheme()">Tema</button>
+  <div class="menu" onclick="toggleDropdown()">⋮</div>
+  <div class="dropdown" id="dropdown">
+    <button onclick="toggleTheme()">Alternar tema</button>
+    <button onclick="toggleLanguage()">Switch to English</button>
   </div>
   <div class="container">
     <div class="title">RYOTA</div>
@@ -131,13 +140,38 @@
 
   </div>
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light');
-    }
-    function changeLang(lang) {
-      alert('Idioma trocado para: ' + (lang === 'pt-br' ? 'Português' : 'Inglês'));
-      // Aqui vc pode adicionar lógica de tradução real se quiser
-    }
+    let isDark = true;
+    let isPortuguese = true;function toggleDropdown() {
+  const dropdown = document.getElementById('dropdown');
+  dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+}
+
+function toggleTheme() {
+  const root = document.documentElement;
+  isDark = !isDark;
+  root.style.setProperty('--background-dark', isDark ? 'linear-gradient(to bottom, #0f0f0f, #1a1a1a)' : 'linear-gradient(to bottom, #0d47a1, #42a5f5)');
+  root.style.setProperty('--icon-dark', isDark ? 'linear-gradient(to bottom, #2e2e2e, #4c4c4c)' : 'linear-gradient(to bottom, #1e88e5, #90caf9)');
+  root.style.setProperty('--text-color-dark', isDark ? 'white' : '#ffffff');
+}
+
+function toggleLanguage() {
+  isPortuguese = !isPortuguese;
+  document.querySelector('.title').textContent = isPortuguese ? 'RYOTA' : 'RYOTA';
+  document.querySelector('.section-title').textContent = isPortuguese ? 'HABILIDADES' : 'ABILITIES';
+  document.querySelectorAll('.ability-icon').forEach((el, i) => {
+    const texts = [
+      ['Passiva<br>Luz Incisiva', 'Passive<br>Incisive Light'],
+      ['Fragmento<br>Rígido', 'Rigid<br>Shard'],
+      ['Barreira<br>Prismática', 'Prismatic<br>Barrier'],
+      ['Reforço<br>Compartilhado', 'Shared<br>Reinforcement'],
+      ['Prismas<br>Direcionais', 'Directional<br>Prisms'],
+      ['Ultimate<br>Cúpula Resoluta', 'Ultimate<br>Resolute Dome']
+    ];
+    el.innerHTML = isPortuguese ? texts[i][0] : texts[i][1];
+  });
+  document.querySelector('.section-title + .history').previousElementSibling.textContent = isPortuguese ? 'HISTÓRIA' : 'STORY';
+}
+
   </script>
 </body>
 </html>
