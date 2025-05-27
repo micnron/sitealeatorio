@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,56 +123,60 @@
       <span>Tanque</span>
       <span>Japão</span>
       <span>Idade: 36</span>
-    </div><div class="section-title">HABILIDADES</div>
-<div class="abilities">
-  <div class="ability-icon">Passiva<br>Luz Incisiva</div>
-  <div class="ability-icon">Fragmento<br>Rígido</div>
-  <div class="ability-icon">Barreira<br>Prismática</div>
-  <div class="ability-icon">Reforço<br>Compartilhado</div>
-  <div class="ability-icon">Prismas<br>Direcionais</div>
-  <div class="ability-icon">Ultimate<br>Cúpula Resoluta</div>
-</div>
+      <span>Vida total: 425 (100 de armadura + 325 de vida)</span>
+    </div>
 
-<div class="section-title">HISTÓRIA</div>
-<div class="history">
-  Ryota cresceu em um mundo devastado pela guerra ômnica. Sem família, sem paz e sem saída, encontrou na Talon não uma causa, mas um propósito. Silencioso, letal e pragmático, Ryota se tornou um mercenário que luta não por ideologia, mas por sobrevivência — e por aqueles que, como ele, foram deixados para trás.<br><br>
-  Dotado de uma tecnologia de luz sólida de uso militar, Ryota opera com precisão cirúrgica. A ausência de Baptiste deixou uma marca que nem ele nem Mauga admitem em voz alta. Ainda assim, Ryota continua — entre a lealdade, a culpa e a inevitabilidade de mais uma guerra.
-</div>
+    <div class="section-title">HABILIDADES</div>
+    <div class="abilities">
+      <div class="ability-icon">Passiva<br>Luz Incisiva</div>
+      <div class="ability-icon">Fragmento<br>Rígido</div>
+      <div class="ability-icon">Barreira<br>Prismática</div>
+      <div class="ability-icon">Reforço<br>Compartilhado</div>
+      <div class="ability-icon">Prismas<br>Direcionais</div>
+      <div class="ability-icon">Ultimate<br>Cúpula Resoluta</div>
+    </div>
 
+    <div class="section-title">HISTÓRIA</div>
+    <div class="history">
+      Ryota cresceu em um mundo devastado pela guerra ômnica. Sem família, sem paz e sem saída, encontrou na Talon não uma causa, mas um propósito. Silencioso, letal e pragmático, Ryota se tornou um mercenário que luta não por ideologia, mas por sobrevivência — e por aqueles que, como ele, foram deixados para trás.<br><br>
+      Dotado de uma tecnologia de luz sólida de uso militar, Ryota opera com precisão cirúrgica. A ausência de Baptiste deixou uma marca que nem ele nem Mauga admitem em voz alta. Ainda assim, Ryota continua — entre a lealdade, a culpa e a inevitabilidade de mais uma guerra.
+    </div>
   </div>
   <script>
     let isDark = true;
-    let isPortuguese = true;function toggleDropdown() {
-  const dropdown = document.getElementById('dropdown');
-  dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
-}
+    let isPortuguese = true;
 
-function toggleTheme() {
-  const root = document.documentElement;
-  isDark = !isDark;
-  root.style.setProperty('--background-dark', isDark ? 'linear-gradient(to bottom, #0f0f0f, #1a1a1a)' : 'linear-gradient(to bottom, #0d47a1, #42a5f5)');
-  root.style.setProperty('--icon-dark', isDark ? 'linear-gradient(to bottom, #2e2e2e, #4c4c4c)' : 'linear-gradient(to bottom, #1e88e5, #90caf9)');
-  root.style.setProperty('--text-color-dark', isDark ? 'white' : '#ffffff');
-}
+    function toggleDropdown() {
+      const dropdown = document.getElementById('dropdown');
+      dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+    }
 
-function toggleLanguage() {
-  isPortuguese = !isPortuguese;
-  document.querySelector('.title').textContent = isPortuguese ? 'RYOTA' : 'RYOTA';
-  document.querySelector('.section-title').textContent = isPortuguese ? 'HABILIDADES' : 'ABILITIES';
-  document.querySelectorAll('.ability-icon').forEach((el, i) => {
-    const texts = [
-      ['Passiva<br>Luz Incisiva', 'Passive<br>Incisive Light'],
-      ['Fragmento<br>Rígido', 'Rigid<br>Shard'],
-      ['Barreira<br>Prismática', 'Prismatic<br>Barrier'],
-      ['Reforço<br>Compartilhado', 'Shared<br>Reinforcement'],
-      ['Prismas<br>Direcionais', 'Directional<br>Prisms'],
-      ['Ultimate<br>Cúpula Resoluta', 'Ultimate<br>Resolute Dome']
-    ];
-    el.innerHTML = isPortuguese ? texts[i][0] : texts[i][1];
-  });
-  document.querySelector('.section-title + .history').previousElementSibling.textContent = isPortuguese ? 'HISTÓRIA' : 'STORY';
-}
+    function toggleTheme() {
+      const root = document.documentElement;
+      isDark = !isDark;
+      root.style.setProperty('--background-dark', isDark ? 'linear-gradient(to bottom, #0f0f0f, #1a1a1a)' : 'linear-gradient(to bottom, #0d47a1, #42a5f5)');
+      root.style.setProperty('--icon-dark', isDark ? 'linear-gradient(to bottom, #2e2e2e, #4c4c4c)' : 'linear-gradient(to bottom, #1e88e5, #90caf9)');
+      root.style.setProperty('--text-color-dark', isDark ? 'white' : '#ffffff');
+    }
 
+    function toggleLanguage() {
+      isPortuguese = !isPortuguese;
+      document.querySelector('.title').textContent = isPortuguese ? 'RYOTA' : 'RYOTA';
+      document.querySelector('.section-title').textContent = isPortuguese ? 'HABILIDADES' : 'ABILITIES';
+      document.querySelectorAll('.ability-icon').forEach((el, i) => {
+        const texts = [
+          ['Passiva<br>Luz Incisiva', 'Passive<br>Incisive Light'],
+          ['Fragmento<br>Rígido', 'Rigid<br>Shard'],
+          ['Barreira<br>Prismática', 'Prismatic<br>Barrier'],
+          ['Reforço<br>Compartilhado', 'Shared<br>Reinforcement'],
+          ['Prismas<br>Direcionais', 'Directional<br>Prisms'],
+          ['Ultimate<br>Cúpula Resoluta', 'Ultimate<br>Resolute Dome']
+        ];
+        el.innerHTML = isPortuguese ? texts[i][0] : texts[i][1];
+      });
+      document.querySelector('.section-title + .history').previousElementSibling.textContent = isPortuguese ? 'HISTÓRIA' : 'STORY';
+      document.querySelectorAll('.info span')[3].textContent = isPortuguese ? 'Vida total: 425 (100 de armadura + 325 de vida)' : 'Total HP: 425 (100 armor + 325 health)';
+    }
   </script>
 </body>
 </html>
