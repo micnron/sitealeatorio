@@ -1,182 +1,102 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html><html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ryota — Overwatch</title>
   <style>
-    :root {
-      --background-dark: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
-      --background-light: linear-gradient(to bottom, #0d47a1, #42a5f5);
-      --icon-dark: linear-gradient(to bottom, #2e2e2e, #4c4c4c);
-      --icon-light: linear-gradient(to bottom, #1e88e5, #90caf9);
-      --text-color-dark: white;
-      --text-color-light: #ffffff;
-    }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--background-dark);
-      color: var(--text-color-dark);
-      transition: background 0.5s, color 0.5s;
-    }
-    .container {
-      padding: 20px;
-    }
-    .title {
-      text-align: center;
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .info {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .info span {
-      display: block;
-      font-size: 18px;
-      margin: 5px 0;
-    }
-    .section-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 30px 0 20px;
-      text-align: center;
-    }
-    .abilities {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-    .ability-icon {
-      flex: 1 1 100px;
-      max-width: 100px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: var(--icon-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 12px;
-      font-weight: bold;
-      padding: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-      transition: background 0.5s;
-    }
-    .history {
-      background-color: rgba(18, 18, 18, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 700px;
-      margin: 20px auto;
-      line-height: 1.6;
-    }
-    .menu {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      cursor: pointer;
-      font-size: 24px;
-    }
-    .dropdown {
-      position: absolute;
-      top: 40px;
-      right: 20px;
-      background-color: #333;
-      border: 1px solid #555;
-      border-radius: 6px;
-      display: none;
-      flex-direction: column;
-      padding: 10px;
-    }
-    .dropdown button {
-      background: none;
-      border: none;
-      color: white;
-      padding: 5px 10px;
-      cursor: pointer;
-      text-align: left;
-    }
-    .dropdown button:hover {
-      background-color: #444;
-    }
-    @media (max-width: 600px) {
-      .ability-icon {
-        font-size: 10px;
-        padding: 6px;
-      }
-    }
+    body { margin: 0; font-family: "Helvetica Neue", sans-serif; background-color: #0e1114; color: white; }
+    .hero-header { position: relative; text-align: center; }
+    .hero-header img { width: 100%; max-height: 280px; object-fit: cover; opacity: 0.6; }
+    .hero-header h1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3em; margin: 0; letter-spacing: 2px; }
+    .language-toggle { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
+    .language-toggle button { background: #2c313a; color: #fff; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+    .language-toggle button.active { background: #fff; color: #111; }
+    .profile { display: flex; justify-content: center; gap: 40px; padding: 10px; font-size: 1em; opacity: 0.85; }
+    .profile-item { display: flex; align-items: center; gap: 8px; }
+    .profile-item img { width: 20px; height: 20px; filter: invert(1); }
+    .section-title { text-align: center; font-size: 2em; margin: 40px 0 20px; font-weight: bold; }
+    .abilities { display: grid; grid-template-columns: repeat(3,1fr); row-gap: 20px; column-gap: 30px; justify-items: center; padding: 0 20px; }
+    .ability { text-align: center; width: 100px; cursor: pointer; }
+    .ability-icon { width: 80px; height: 80px; background: #1a1d21; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.3s; position: relative; }
+    .ability-icon:hover { background: #2c313a; }
+    .ability-icon img { width: 50%; height: 50%; filter: invert(1); }
+    .ability h3 { margin: 10px 0 5px; font-size: 0.9em; text-transform: uppercase; }
+    .ability-description { display: none; position: absolute; top: 100px; left: 50%; transform: translateX(-50%); width: 180px; background: rgba(30,34,41,0.9); padding: 8px; border-radius: 8px; font-size: 0.8em; color: #ddd; z-index: 10; }
+    .ability:hover .ability-description { display: block; }
+    .bio-section { max-width: 800px; margin: 20px auto 40px; padding: 20px; background: #161b22; border-radius: 12px; font-size: 0.95em; line-height: 1.5; }
   </style>
 </head>
 <body>
-  <div class="menu" onclick="toggleDropdown()">⋮</div>
-  <div class="dropdown" id="dropdown">
-    <button onclick="toggleTheme()">Alternar tema</button>
-    <button onclick="toggleLanguage()">Switch to English</button>
+  <div class="hero-header">
+    <img src="URL_DA_IMAGEM_RYOTA" alt="Ryota banner">
+    <h1>RYOTA</h1>
   </div>
-  <div class="container">
-    <div class="title">RYOTA</div>
-    <div class="info">
-      <span>Tanque</span>
-      <span>Japão</span>
-      <span>Idade: 36</span>
-      <span>Vida total: 425 (100 de armadura + 325 de vida)</span>
-    </div>
-
-    <div class="section-title">HABILIDADES</div>
-    <div class="abilities">
-      <div class="ability-icon">Passiva<br>Luz Incisiva</div>
-      <div class="ability-icon">Fragmento<br>Rígido</div>
-      <div class="ability-icon">Barreira<br>Prismática</div>
-      <div class="ability-icon">Reforço<br>Compartilhado</div>
-      <div class="ability-icon">Prismas<br>Direcionais</div>
-      <div class="ability-icon">Ultimate<br>Cúpula Resoluta</div>
-    </div>
-
-    <div class="section-title">HISTÓRIA</div>
-    <div class="history">
-      Ryota cresceu em um mundo devastado pela guerra ômnica. Sem família, sem paz e sem saída, encontrou na Talon não uma causa, mas um propósito. Silencioso, letal e pragmático, Ryota se tornou um mercenário que luta não por ideologia, mas por sobrevivência — e por aqueles que, como ele, foram deixados para trás.<br><br>
-      Dotado de uma tecnologia de luz sólida de uso militar, Ryota opera com precisão cirúrgica. A ausência de Baptiste deixou uma marca que nem ele nem Mauga admitem em voz alta. Ainda assim, Ryota continua — entre a lealdade, a culpa e a inevitabilidade de mais uma guerra.
-    </div>
+  <div class="language-toggle">
+    <button id="btn-pt" class="active" onclick="switchLanguage('pt')">Português</button>
+    <button id="btn-en" onclick="switchLanguage('en')">English</button>
   </div>
+  <div class="profile" id="hero-info"></div>
+  <div class="section-title" id="abilities-title"></div>
+  <div class="abilities" id="abilities"></div>
+  <div class="section-title" id="bio-title"></div>
+  <div class="bio-section" id="bio"></div>
   <script>
-    let isDark = true;
-    let isPortuguese = true;
-
-    function toggleDropdown() {
-      const dropdown = document.getElementById('dropdown');
-      dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
-    }
-
-    function toggleTheme() {
-      const root = document.documentElement;
-      isDark = !isDark;
-      root.style.setProperty('--background-dark', isDark ? 'linear-gradient(to bottom, #0f0f0f, #1a1a1a)' : 'linear-gradient(to bottom, #0d47a1, #42a5f5)');
-      root.style.setProperty('--icon-dark', isDark ? 'linear-gradient(to bottom, #2e2e2e, #4c4c4c)' : 'linear-gradient(to bottom, #1e88e5, #90caf9)');
-      root.style.setProperty('--text-color-dark', isDark ? 'white' : '#ffffff');
-    }
-
-    function toggleLanguage() {
-      isPortuguese = !isPortuguese;
-      document.querySelector('.title').textContent = isPortuguese ? 'RYOTA' : 'RYOTA';
-      document.querySelector('.section-title').textContent = isPortuguese ? 'HABILIDADES' : 'ABILITIES';
-      document.querySelectorAll('.ability-icon').forEach((el, i) => {
-        const texts = [
-          ['Passiva<br>Luz Incisiva', 'Passive<br>Incisive Light'],
-          ['Fragmento<br>Rígido', 'Rigid<br>Shard'],
-          ['Barreira<br>Prismática', 'Prismatic<br>Barrier'],
-          ['Reforço<br>Compartilhado', 'Shared<br>Reinforcement'],
-          ['Prismas<br>Direcionais', 'Directional<br>Prisms'],
-          ['Ultimate<br>Cúpula Resoluta', 'Ultimate<br>Resolute Dome']
-        ];
-        el.innerHTML = isPortuguese ? texts[i][0] : texts[i][1];
+    const data = {
+      pt: {
+        info: [
+          { icon: 'icons/tank.svg', text: 'Tanque' },
+          { icon: 'icons/japan.svg', text: 'Japão' },
+          { icon: 'icons/calendar.svg', text: '36 anos' }
+        ],
+        abilitiesTitle: 'HABILIDADES',
+        bioTitle: 'HISTÓRIA',
+        abilities: [
+          { icon: 'icons/passive.svg', title: 'Passiva – Luz Incisiva', desc: 'As habilidades de Ryota ignoram 50% da vida de barreiras ativas. Efeitos secundários atravessam totalmente.' },
+          { icon: 'icons/shard.svg', title: 'Fragmento Rígido', desc: 'Dispara 3 fragmentos de luz que explodem e atravessam barreiras, pressionando inimigos atrás.' },
+          { icon: 'icons/barrier.svg', title: 'Barreira Prismática', desc: 'Projeta uma barreira de luz por 3,5s. Pode ser cancelada para iniciar recarga.' },
+          { icon: 'icons/shield_share.svg', title: 'Reforço Compartilhado', desc: 'Concede escudos temporários a Ryota e a um aliado por 5s.' },
+          { icon: 'icons/prism.svg', title: 'Prismas Direcionais', desc: 'Dispara espinhos triangulares de luz que podem puxar ou empurrar inimigos.' },
+          { icon: 'icons/dome.svg', title: 'Ultimate – Cúpula Resoluta', desc: 'Cria uma cúpula que expulsa inimigos e bloqueia entrada por 7s.' }
+        ],
+        bio: '<p>Ryota cresceu em um mundo devastado pela guerra ômnica. Sem família, encontrou na Talon um propósito: sobreviver — e proteger quem restou.</p><p>Com tecnologia de luz sólida militar, Ryota luta com precisão cirúrgica. A ausência de Baptiste deixou uma marca silenciosa, mas ele segue firme, entre lealdade e culpa.</p>'
+      },
+      en: {
+        info: [
+          { icon: 'icons/tank.svg', text: 'Tank' },
+          { icon: 'icons/japan.svg', text: 'Japan' },
+          { icon: 'icons/calendar.svg', text: 'Age: 36' }
+        ],
+        abilitiesTitle: 'ABILITIES',
+        bioTitle: 'STORY',
+        abilities: [
+          { icon: 'icons/passive.svg', title: 'Passive – Cutting Light', desc: 'Ryota’s abilities ignore 50% of active barrier health. Secondary effects fully penetrate.' },
+          { icon: 'icons/shard.svg', title: 'Rigid Shard', desc: 'Fires 3 light shards that explode and penetrate barriers, pressuring enemies behind.' },
+          { icon: 'icons/barrier.svg', title: 'Prismatic Barrier', desc: 'Projects a light barrier for 3.5s. Can be canceled to start recharge.' },
+          { icon: 'icons/shield_share.svg', title: 'Shared Reinforcement', desc: 'Grants temporary shields to Ryota and an ally for 5s.' },
+          { icon: 'icons/prism.svg', title: 'Directional Prisms', desc: 'Fires light spikes that pull or push enemies.' },
+          { icon: 'icons/dome.svg', title: 'Ultimate – Resolute Dome', desc: 'Creates a dome that ejects enemies and blocks entry for 7s.' }
+        ],
+        bio: '<p>Ryota grew up in a world ravaged by the Omnic War. Without family, he found purpose in Talon: survive — and protect those left behind.</p><p>Equipped with military solid-light technology, Ryota fights with surgical precision. Baptiste’s absence left a silent mark, but he stands firm, between loyalty and guilt.</p>'
+      }
+    };
+    let currentLang = 'pt';
+    function switchLanguage(lang) {
+      document.getElementById('btn-pt').classList.toggle('active', lang==='pt');
+      document.getElementById('btn-en').classList.toggle('active', lang==='en');
+      const content = data[lang];
+      const infoDiv = document.getElementById('hero-info');
+      infoDiv.innerHTML = content.info.map(item => `<div class="profile-item"><img src="${item.icon}" alt="">${item.text}</div>`).join('');
+      document.getElementById('abilities-title').textContent = content.abilitiesTitle;
+      const abilitiesDiv = document.getElementById('abilities'); abilitiesDiv.innerHTML = '';
+      content.abilities.forEach(a => {
+        const el = document.createElement('div'); el.className='ability';
+        el.innerHTML = `<div class="ability-icon"><img src="${a.icon}" alt=""></div><h3>${a.title}</h3><div class="ability-description">${a.desc}</div>`;
+        abilitiesDiv.appendChild(el);
       });
-      document.querySelector('.section-title + .history').previousElementSibling.textContent = isPortuguese ? 'HISTÓRIA' : 'STORY';
-      document.querySelectorAll('.info span')[3].textContent = isPortuguese ? 'Vida total: 425 (100 de armadura + 325 de vida)' : 'Total HP: 425 (100 armor + 325 health)';
+      document.getElementById('bio-title').textContent = content.bioTitle;
+      document.getElementById('bio').innerHTML = content.bio;
     }
+    switchLanguage(currentLang);
   </script>
 </body>
 </html>
