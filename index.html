@@ -1,106 +1,143 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+
+<!DOCTYPE html><html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ryota — Overwatch</title>
   <style>
+    :root {
+      --bg-main: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      --card-bg: #121212;
+      --icon-bg: linear-gradient(to bottom, #2e2e2e, #4c4c4c);
+      --text-color: white;
+    }
+    body.light {
+      --bg-main: linear-gradient(to bottom, #f0f0f0, #ffffff);
+      --card-bg: #f9f9f9;
+      --icon-bg: linear-gradient(to bottom, #dcdcdc, #ffffff);
+      --text-color: #000;
+    }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
-      color: white;
+      background: var(--bg-main);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
     }
-    header {
-      background: linear-gradient(to right, #1e293b, #334155);
+    .container {
+      padding: 20px;
+    }
+    .menu {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .menu select, .menu button {
+      background: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid #555;
+      border-radius: 5px;
+      padding: 5px;
+      margin-left: 5px;
+    }
+    .title {
       text-align: center;
-      padding: 2rem 1rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
     .info {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 1rem 0;
-      font-size: 1rem;
-      color: #cbd5e1;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .info span {
+      display: block;
+      font-size: 18px;
+      margin: 5px 0;
     }
     .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 30px 0 20px;
       text-align: center;
-      margin-top: 2rem;
-      font-size: 1.8rem;
-      color: white;
     }
-    .skills {
+    .abilities {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      margin: 1.5rem;
+      justify-content: center;
+      gap: 15px;
     }
-    .skill-icon {
-      background-color: #334155;
-      width: 64px;
-      height: 64px;
+    .ability-icon {
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
+      background: var(--icon-bg);
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid #94a3b8;
-    }
-    .skill-icon img {
-      width: 32px;
-      height: 32px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     }
     .history {
-      background: #1e293b;
-      padding: 2rem 1.5rem;
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      margin: 20px auto;
       line-height: 1.6;
-      color: #e2e8f0;
-      max-width: 800px;
-      margin: auto;
-      border-top: 1px solid #475569;
     }
     @media (max-width: 600px) {
-      .skills {
-        gap: 1rem;
+      .ability-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 10px;
+        padding: 6px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>RYOTA</h1>
+  <div class="menu">
+    <select id="lang" onchange="changeLang(this.value)">
+      <option value="pt-br">PT</option>
+      <option value="en">EN</option>
+    </select>
+    <button onclick="toggleTheme()">Tema</button>
+  </div>
+  <div class="container">
+    <div class="title">RYOTA</div>
     <div class="info">
       <span>Tanque</span>
       <span>Japão</span>
       <span>Idade: 36</span>
-    </div>
-  </header>
+    </div><div class="section-title">HABILIDADES</div>
+<div class="abilities">
+  <div class="ability-icon">Passiva<br>Luz Incisiva</div>
+  <div class="ability-icon">Fragmento<br>Rígido</div>
+  <div class="ability-icon">Barreira<br>Prismática</div>
+  <div class="ability-icon">Reforço<br>Compartilhado</div>
+  <div class="ability-icon">Prismas<br>Direcionais</div>
+  <div class="ability-icon">Ultimate<br>Cúpula Resoluta</div>
+</div>
 
-  <section>
-    <h2 class="section-title">HABILIDADES</h2>
-    <div class="skills">
-      <div class="skill-icon"><img src="placeholder.png" alt="Passiva"></div>
-      <div class="skill-icon"><img src="placeholder.png" alt="Primária"></div>
-      <div class="skill-icon"><img src="placeholder.png" alt="Barreira"></div>
-      <div class="skill-icon"><img src="placeholder.png" alt="Reforço"></div>
-      <div class="skill-icon"><img src="placeholder.png" alt="Prismas"></div>
-      <div class="skill-icon"><img src="placeholder.png" alt="Ultimate"></div>
-    </div>
-  </section>
+<div class="section-title">HISTÓRIA</div>
+<div class="history">
+  Ryota cresceu em um mundo devastado pela guerra ômnica. Sem família, sem paz e sem saída, encontrou na Talon não uma causa, mas um propósito. Silencioso, letal e pragmático, Ryota se tornou um mercenário que luta não por ideologia, mas por sobrevivência — e por aqueles que, como ele, foram deixados para trás.<br><br>
+  Dotado de uma tecnologia de luz sólida de uso militar, Ryota opera com precisão cirúrgica. A ausência de Baptiste deixou uma marca que nem ele nem Mauga admitem em voz alta. Ainda assim, Ryota continua — entre a lealdade, a culpa e a inevitabilidade de mais uma guerra.
+</div>
 
-  <section class="history">
-    <h2>HISTÓRIA</h2>
-    <p>Ryota cresceu em um mundo devastado pela guerra ômnica. Sem família, sem paz e sem saída, encontrou na Talon não uma causa, mas um propósito. Silencioso, letal e pragmático, Ryota se tornou um mercenário que luta não por ideologia, mas por sobrevivência — e por aqueles que, como ele, foram deixados para trás.</p>
-    <p>Dotado de uma tecnologia de luz sólida de uso militar, Ryota opera com precisão cirúrgica. A ausência de Baptiste deixou uma marca que nem ele nem Mauga admitem em voz alta. Ainda assim, Ryota continua — entre a lealdade, a culpa e a inevitabilidade de mais uma guerra.</p>
-  </section>
+  </div>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+    function changeLang(lang) {
+      alert('Idioma trocado para: ' + (lang === 'pt-br' ? 'Português' : 'Inglês'));
+      // Aqui vc pode adicionar lógica de tradução real se quiser
+    }
+  </script>
 </body>
 </html>
-
-
-Pronto! Agora a seção das habilidades está com os ícones redondos e responsivos, igual ao estilo da página do Hazard. Usei as cores escuras e frias que combinam com o visual do Ryota. Me avisa se quiser ajustar o tamanho dos ícones, trocar os placeholders por imagens reais ou mudar a ordem das habilidades!
-
